@@ -43,7 +43,7 @@ architecture structural of RISCV is
     writeReg : in STD_LOGIC;
     sourceReg1 : in STD_LOGIC_VECTOR ( 4 downto 0 );
     sourceReg2 : in STD_LOGIC_VECTOR ( 4 downto 0 );
-    targetReg : in STD_LOGIC_VECTOR ( 4 downto 0 );
+    destinyReg : in STD_LOGIC_VECTOR ( 4 downto 0 );
     data : in STD_LOGIC_VECTOR ( 31 downto 0 );
     readData1 : out STD_LOGIC_VECTOR ( 31 downto 0 );
     readData2 : out STD_LOGIC_VECTOR ( 31 downto 0 )
@@ -77,7 +77,6 @@ architecture structural of RISCV is
   end component;
   
   component Adder is
-  Generic (BITS : INTEGER);
   port (
     X : in STD_LOGIC_VECTOR ( 31 downto 0 );
     Y : in STD_LOGIC_VECTOR ( 31 downto 0 );
@@ -173,7 +172,6 @@ Add4_0: component Add4
       PC(31 downto 0) => PCOut(31 downto 0)
     );
 Adder_0: Adder
-     generic map (BITS => 32)
      port map (
       Sum(31 downto 0) => NewPC(31 downto 0),
       X(31 downto 0) => immediate(31 downto 0),
@@ -229,7 +227,7 @@ RegisterFile_0: component RegFile
      port map (
       clk => clk,
       data(31 downto 0) => result(31 downto 0),
-      targetReg(4 downto 0) => targetReg(4 downto 0),
+      destinyReg(4 downto 0) => targetReg(4 downto 0),
       readData1(31 downto 0) => readData1(31 downto 0),
       readData2(31 downto 0) => readData2(31 downto 0),
       rst => rst,
