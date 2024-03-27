@@ -8,7 +8,8 @@ entity ControlUnit is
     -- width of instruction (opcode)
     port ( opcode : in std_logic_vector(6 downto 0);
            f3, f7, zero : in std_logic;
-           PCSrc, ALUSrc, MemWrite,ResultSrc, ALUControl, RegWrite: out std_logic );
+           PCSrc, ALUSrc, MemWrite,ResultSrc, RegWrite: out std_logic );
+           ALUControl: out std_logic_vector(2 downto 0) );
 end ControlUnit;
 
 architecture behavior of ControlUnit is
