@@ -36,7 +36,7 @@ architecture structural of RISCV is
   );
   end component;
   
-  component RegisterFile is
+  component RegFile is
   port (
     clk : in STD_LOGIC;
     rst : in STD_LOGIC;
@@ -225,7 +225,7 @@ ProgramCounter_0: component ProgramCounter
       clk => clk,
       rst => rst
     );
-RegisterFile_0: component RegisterFile
+RegisterFile_0: component RegFile
      port map (
       clk => clk,
       data(31 downto 0) => result(31 downto 0),

@@ -1,3 +1,8 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.STD_LOGIC_ARITH.ALL;
+use IEEE.STD_LOGIC_UNSIGNED.ALL;
+
 entity ALU is
     Port (
         operator1 : in STD_LOGIC_VECTOR ( 31 downto 0 );
