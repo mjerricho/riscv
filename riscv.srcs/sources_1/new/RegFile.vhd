@@ -13,6 +13,8 @@ entity RegFile is
     sourceReg2 : in std_logic_vector(4 downto 0);
     destinyReg : in std_logic_vector(4 downto 0);
     data : in std_logic_vector(31 downto 0);
+    readData1 : out std_logic_vector(31 downto 0);
+    readData2 : out std_logic_vector(31 downto 0);
     
     Data1 : out std_logic_vector(31 downto 0);
     Data2 : out std_logic_vector(31 downto 0)
