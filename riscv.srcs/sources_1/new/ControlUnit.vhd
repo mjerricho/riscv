@@ -6,8 +6,9 @@ use IEEE.STD_LOGIC_UNSIGNED.ALL;
 
 entity ControlUnit is
     -- width of instruction (opcode)
-    port ( opcode : in std_logic_vector(6 downto 0);
-           f3, f7, zero : in std_logic;
+    port ( opcode, funct7 : in std_logic_vector(6 downto 0);
+           funct3 : in std_logic_vector(2 downto 0);
+           zero : in std_logic;
            PCSrc, ALUSrc, MemWrite,ResultSrc, RegWrite: out std_logic; 
            ALUControl : out std_logic_vector(2 downto 0) );
 end ControlUnit;
@@ -39,6 +40,10 @@ begin
                 ALUSrc <= '0';
                 MemWrite <= '0';
                 ResultSrc <= '1';
+            when others =>
+                ALUSrc <= '0';
+                MemWrite <= '0';
+                ResultSrc <= '0';
         end case;
     end process;
 end behavior;
